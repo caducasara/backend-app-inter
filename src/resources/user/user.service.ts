@@ -21,7 +21,7 @@ export default class UserService {
         const existUser = await userRepository.findOne({ where: { email, password: passwordHash } })
 
         if (!existUser) {
-            throw new AppError('Usuário não encontrato', 401);
+            throw new AppError('Usuário não encontrado', 401);
         }
 
         const { secret, expiresIn } = authConfig.jwt;
